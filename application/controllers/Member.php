@@ -41,6 +41,7 @@ class Member extends CI_Controller {
 			$data["login"] = $this->member_model->login($student_id,$student_password);
 
 			foreach($data as $key => $login) {
+					//print_r($login);
           if($student_id != $login["student_id"]) {
               echo "Invalid Student ID";
           } else if($student_password != $login["student_password"]) {

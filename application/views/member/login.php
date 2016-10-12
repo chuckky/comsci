@@ -41,14 +41,14 @@
                                   <div class="input-group">
                                       <label class="sr-only" for="form-username">รหัสนักศึกษา</label>
                                       <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                      <input type="text" id="student_id" name="student_id" placeholder="รหัสนักศึกษา" class="form-username form-control" autocomplete="off" />
+                                      <input type="text" id="student_id" name="student_id" placeholder="รหัสนักศึกษา" class="form-username form-control" autocomplete="off" maxlength="10" />
                                   </div>
                               </div>
                               <div class="form-group">
                                   <div class="input-group">
                                       <label class="sr-only" for="form-password">Password</label>
                                       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                      <input type="password" id="student_password" name="student_password" placeholder="รหัสผ่าน" class="form-password form-control" autocomplete="off" />
+                                      <input type="password" id="student_password" name="student_password" placeholder="รหัสผ่าน" class="form-password form-control" autocomplete="off" maxlength="10" />
                                   </div>
                               </div>
                               <button type="button" class="btn btn-success" id="btnLogin">เข้าสู่ระบบ</button>

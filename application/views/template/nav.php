@@ -12,7 +12,7 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="#">Home</a></li>
+          <li><a href="<?php echo base_url(); ?>">Home</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
           <li class="dropdown">
@@ -30,12 +30,12 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
-          <li><a href="../navbar-static-top/">Static top</a></li>
+          <li><a href="#">Static top</a></li>
           <?php if($this->session->userdata("login") == TRUE) { ?>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <?php
-                  echo $this->session->userdata("student_prefix").". ".$this->session->userdata("student_firstname")." ".$this->session->userdata("student_lastname");
+                  echo $this->session->userdata("student_prefix")." ".$this->session->userdata("student_firstname")." ".$this->session->userdata("student_lastname");
                 ?>
                 <span class="caret"></span>
               </a>

@@ -30,7 +30,7 @@ class Member_model extends CI_Model {
     if($check_login_query->num_rows() > 0) {
       $login_result = $check_login_query->row_array();
     } else {
-      $login_result = array();
+      $login_result = null;
     }
     return $login_result;
   }
