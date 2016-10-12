@@ -54,19 +54,19 @@
             </li>
           <?php } else { ?>
             <li class="dropdown">
-              <a href="#">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 Login / Register
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
                 <li>
                   <a href="<?php echo base_url("member/login"); ?>">
-                    <i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> Login
+                    <i class="fa fa-sign-in fa" aria-hidden="true"></i> Login
                   </a>
                 </li>
                 <li>
                   <a href="<?php echo base_url("member/register"); ?>">
-                    <i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> Register
+                    <i class="fa fa-sign-out fa" aria-hidden="true"></i> Register
                   </a>
                 </li>
               </ul>
