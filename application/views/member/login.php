@@ -13,7 +13,7 @@
 		<!-- Google Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet" type="text/css" />
 		<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="<?php echo base_url("assets/css/login.css") ?>">
+    <link rel="stylesheet" href="<?php echo base_url("assets/css/login.css") ?>" />
     <title>CS</title>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <!-- Latest compiled and minified JavaScript -->

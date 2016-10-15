@@ -8,6 +8,14 @@ class Member extends CI_Controller {
 		$this->load->model("member_model");
 	}
 
+	public function index() {
+		if($this->session->userdata("login") == TRUE) {
+			$this->load->view("member/main");
+		} else {
+			redirect(base_url());
+		}
+	}
+
 	public function register() {
 		$student_id = $this->input->post("student_id");
 		$student_password = $this->input->post("student_password");
