@@ -9,10 +9,21 @@ class Member extends CI_Controller {
 	}
 
 	public function index() {
+		//print_r($this->session->userdata());
 		if($this->session->userdata("login") == TRUE) {
-			$this->load->view("member/main");
+			$data["coop"] = $this->member_model->getCoopDataByID("5204800129");
+
+			foreach ($data as $key => $value) {
+				if(count($value) > 0) {
+					
+				} else {
+					echo "b";
+				}
+			}
+
+			//$this->load->view("member/main");
 		} else {
-			redirect(base_url());
+			//redirect(base_url());
 		}
 	}
 
@@ -51,6 +62,9 @@ class Member extends CI_Controller {
 								"student_prefix" => $login["student_prefix"],
 								"student_firstname" => $login["student_firstname"],
 								"student_lastname" => $login["student_lastname"],
+								"student_email" => $login["student_email"],
+								"student_tel" => $login["student_tel"],
+								"student_gender" => $login["student_gender"],
 								"login" => TRUE
 							);
               $login_session = $this->session->set_userdata($login_data);

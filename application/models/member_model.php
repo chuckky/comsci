@@ -34,4 +34,16 @@ class Member_model extends CI_Model {
     }
     return $login_result;
   }
+
+  public function getCoopDataByID($student_id) {
+    $sql = "SELECT * FROM coop WHERE student_id=?";
+    $query = $this->db->query($sql,$student_id);
+
+    if($query->num_rows() > 0) {
+      $result = $query->row_array();
+    } else {
+      $result = array();
+    }
+    return $result;
+  }
 }
