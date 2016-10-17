@@ -1,29 +1,29 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Member extends CI_Controller {
+class Student extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->model("member_model");
+		$this->load->model("student_model");
 	}
 
 	public function index() {
 		//print_r($this->session->userdata());
 		if($this->session->userdata("login") == TRUE) {
-			$data["coop"] = $this->member_model->getCoopDataByID("5204800129");
+			$data["coop"] = $this->student_model->getCoopDataByID("5204800129");
 
 			foreach ($data as $key => $value) {
 				if(count($value) > 0) {
-					
+
 				} else {
-					echo "b";
+					$this->load->view("student/insertcoop");
 				}
 			}
 
-			//$this->load->view("member/main");
+			//$this->load->view("student/main");
 		} else {
-			//redirect(base_url());
+			redirect(base_url("student/login"));
 		}
 	}
 
@@ -38,9 +38,9 @@ class Member extends CI_Controller {
 		$student_tel = $this->input->post("student_tel");
 
 		if($this->input->post()) {
-			$this->member_model->register($student_id,$student_password,$student_prefix,$student_gender,$student_firstname,$student_lastname,$student_email,$student_tel);
+			$this->student_model->register($student_id,$student_password,$student_prefix,$student_gender,$student_firstname,$student_lastname,$student_email,$student_tel);
 		} else {
-			$this->load->view("member/register");
+			$this->load->view("student/register");
 		}
 	}
 
@@ -49,7 +49,7 @@ class Member extends CI_Controller {
 		$student_password = $this->input->post("student_password");
 
 		if($this->input->post()) {
-			$data["login"] = $this->member_model->login($student_id,$student_password);
+			$data["login"] = $this->student_model->login($student_id,$student_password);
 
 			foreach($data as $key => $login) {
 					//print_r($login);
@@ -73,7 +73,7 @@ class Member extends CI_Controller {
           }
 				}
 		} else {
-				$this->load->view("member/login");
+				$this->load->view("student/login");
 		}
 	}
 
