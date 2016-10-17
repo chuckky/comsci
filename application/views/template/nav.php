@@ -47,7 +47,7 @@
                 <li class="dropdown-header">Nav header</li>
                 <li><a href="#">Separated link</a></li>
                 <li>
-                  <a href="<?php echo base_url("member/logout"); ?>">
+                  <a href="<?php echo base_url("student/logout"); ?>">
                     <i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> Logout
                   </a>
                 </li>
@@ -61,12 +61,12 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="<?php echo base_url("member/login"); ?>">
+                  <a href="<?php echo base_url("student/login"); ?>">
                     <i class="fa fa-sign-in fa" aria-hidden="true"></i> Login
                   </a>
                 </li>
                 <li>
-                  <a href="<?php echo base_url("member/register"); ?>">
+                  <a href="<?php echo base_url("student/register"); ?>">
                     <i class="fa fa-sign-out fa" aria-hidden="true"></i> Register
                   </a>
                 </li>

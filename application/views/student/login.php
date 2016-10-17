@@ -19,7 +19,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
-    <script type="text/javascript" src="<?php echo base_url("assets/js/login.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("assets/js/student/login.js"); ?>"></script>
   </head>
   <body cz-shortcut-listen="true">
     <div class="top-content">
