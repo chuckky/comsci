@@ -9,8 +9,8 @@ class Student extends CI_Controller {
 	}
 
 	public function index() {
-		//print_r($this->session->userdata());
 		if($this->session->userdata("login") == TRUE) {
+<<<<<<< HEAD:application/controllers/Student.php
 			$data["coop"] = $this->student_model->getCoopDataByID("5204800129");
 
 			foreach ($data as $key => $value) {
@@ -24,6 +24,11 @@ class Student extends CI_Controller {
 			//$this->load->view("student/main");
 		} else {
 			redirect(base_url("student/login"));
+=======
+			$this->load->view("member/main");
+		} else {
+			redirect(base_url());
+>>>>>>> parent of 538ab2b... Change Student:application/controllers/Member.php
 		}
 	}
 
@@ -63,9 +68,6 @@ class Student extends CI_Controller {
 								"student_prefix" => $login["student_prefix"],
 								"student_firstname" => $login["student_firstname"],
 								"student_lastname" => $login["student_lastname"],
-								"student_email" => $login["student_email"],
-								"student_tel" => $login["student_tel"],
-								"student_gender" => $login["student_gender"],
 								"login" => TRUE
 							);
               $login_session = $this->session->set_userdata($login_data);

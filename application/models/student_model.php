@@ -34,6 +34,7 @@ class Student_model extends CI_Model {
     }
     return $login_result;
   }
+<<<<<<< HEAD:application/models/student_model.php
 
   public function getCoopDataByID($student_id) {
     $sql = "SELECT * FROM coop
@@ -50,4 +51,6 @@ class Student_model extends CI_Model {
     }
     return $result;
   }
+=======
+>>>>>>> parent of 538ab2b... Change Student:application/models/member_model.php
 }
