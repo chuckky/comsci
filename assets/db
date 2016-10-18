@@ -1,0 +1,245 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.2
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Oct 17, 2016 at 02:16 PM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 7.0.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `comsci`
+--
+DROP DATABASE `comsci`;
+CREATE DATABASE IF NOT EXISTS `comsci` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `comsci`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `advisor`
+--
+-- Creation: Oct 14, 2016 at 11:39 AM
+--
+
+DROP TABLE IF EXISTS `advisor`;
+CREATE TABLE IF NOT EXISTS `advisor` (
+  `advisor_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `advisor_password` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `advisor_prefix` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `advisor_firstname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `advisor_lastname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `advisor_email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `advisor_tel` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `advisor_gender` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`advisor_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Truncate table before insert `advisor`
+--
+
+TRUNCATE TABLE `advisor`;
+--
+-- Dumping data for table `advisor`
+--
+
+INSERT INTO `advisor` (`advisor_id`, `advisor_password`, `advisor_prefix`, `advisor_firstname`, `advisor_lastname`, `advisor_email`, `advisor_tel`, `advisor_gender`) VALUES
+('1111111111', '12345', 'Mr', 'Pariwat', 'Ongsulee', 'pariwatsiam@gmail.com', '0894212121', 'M'),
+('2222222222', '12345', 'Mrs', 'Janya', 'Yamcharoen', 'janya008@gmail.com', '0891591419', 'F');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `company`
+--
+-- Creation: Oct 14, 2016 at 11:51 AM
+--
+
+DROP TABLE IF EXISTS `company`;
+CREATE TABLE IF NOT EXISTS `company` (
+  `company_id` int(10) NOT NULL AUTO_INCREMENT,
+  `company_name` text COLLATE utf8_unicode_ci NOT NULL,
+  `payment` double(10,2) NOT NULL,
+  `position_id` int(10) NOT NULL,
+  `student_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`company_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Truncate table before insert `company`
+--
+
+TRUNCATE TABLE `company`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `coop`
+--
+-- Creation: Oct 16, 2016 at 11:31 AM
+--
+
+DROP TABLE IF EXISTS `coop`;
+CREATE TABLE IF NOT EXISTS `coop` (
+  `coop_id` int(11) NOT NULL AUTO_INCREMENT,
+  `student_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `position_id` int(10) NOT NULL,
+  `advisor_id` int(10) NOT NULL,
+  `company_id` int(10) NOT NULL,
+  `project_id` int(10) NOT NULL,
+  `staff_id` int(10) NOT NULL,
+  `semester` int(1) NOT NULL,
+  `acdemic_year` int(4) NOT NULL,
+  `coop_start_date` date NOT NULL,
+  `coop_end_date` date NOT NULL,
+  PRIMARY KEY (`coop_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Truncate table before insert `coop`
+--
+
+TRUNCATE TABLE `coop`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `position`
+--
+-- Creation: Oct 15, 2016 at 11:20 AM
+--
+
+DROP TABLE IF EXISTS `position`;
+CREATE TABLE IF NOT EXISTS `position` (
+  `position_id` int(10) NOT NULL AUTO_INCREMENT,
+  `position_name` varchar(200) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`position_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Truncate table before insert `position`
+--
+
+TRUNCATE TABLE `position`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project`
+--
+-- Creation: Oct 15, 2016 at 11:19 AM
+--
+
+DROP TABLE IF EXISTS `project`;
+CREATE TABLE IF NOT EXISTS `project` (
+  `project_id` int(10) NOT NULL AUTO_INCREMENT,
+  `student_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `project_name` text COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`project_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Truncate table before insert `project`
+--
+
+TRUNCATE TABLE `project`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `role`
+--
+-- Creation: Oct 15, 2016 at 11:22 AM
+--
+
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE IF NOT EXISTS `role` (
+  `role_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `role_name` varchar(200) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `company_id` int(10) NOT NULL,
+  `position_id` int(10) NOT NULL,
+  PRIMARY KEY (`role_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Truncate table before insert `role`
+--
+
+TRUNCATE TABLE `role`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `staff`
+--
+-- Creation: Oct 14, 2016 at 11:46 AM
+--
+
+DROP TABLE IF EXISTS `staff`;
+CREATE TABLE IF NOT EXISTS `staff` (
+  `staff_id` int(10) NOT NULL AUTO_INCREMENT,
+  `staff_prefix` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `staff_firstname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `staff_lastname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `company_id` int(10) NOT NULL,
+  `student_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`staff_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Truncate table before insert `staff`
+--
+
+TRUNCATE TABLE `staff`;
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`staff_id`, `staff_prefix`, `staff_firstname`, `staff_lastname`, `company_id`, `student_id`) VALUES
+(1, 'Mr', 'A', 'B', 1, '5204800113'),
+(2, 'Mrs', 'C', 'D', 2, '5204800129');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student`
+--
+-- Creation: Oct 14, 2016 at 11:53 AM
+--
+
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE IF NOT EXISTS `student` (
+  `student_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `student_password` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `student_prefix` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `student_firstname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `student_lastname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `student_email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `student_tel` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `student_gender` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `advisor_id` int(10) NOT NULL,
+  `staff_id` int(10) NOT NULL,
+  PRIMARY KEY (`student_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Truncate table before insert `student`
+--
+
+TRUNCATE TABLE `student`;
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`student_id`, `student_password`, `student_prefix`, `student_firstname`, `student_lastname`, `student_email`, `student_tel`, `student_gender`, `advisor_id`, `staff_id`) VALUES
+('5204800113', '1234', 'นางสาว', 'CHALUCK', 'SANGSIRIRATTANA', 'bank.flush@gmail.com', '0815675315', 'M', 1111111111, 2),
+('5204800129', '5315', 'นาย', 'CHALUCK', 'SANGSIRIRATTANA', 'bank.flush@gmail.com', '815675315', 'M', 222222222, 1);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

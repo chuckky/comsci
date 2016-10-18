@@ -12,7 +12,7 @@ $(document).ready(function() {
       student_password.focus();
     } else {
       $.ajax({
-        url: base_url + "member/login",
+        url: base_url + "student/login",
         method: "POST",
         data: $("#frmLogin").serialize()
       }).done(function(msg) {
@@ -23,8 +23,8 @@ $(document).ready(function() {
           alert("Invalid password");
         } else if(msg == "Yes") {
           alert("Login Success");
-          //window.location.href = base_url + "member";
-          alert(base_url + "member");
+          window.location.href = base_url + "student";
+          //alert(base_url + "member");
         }
       });
     }

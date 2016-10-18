@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Member_model extends CI_Model {
+class Student_model extends CI_Model {
   public function __construct() {
 		parent::__construct();
 	}
@@ -30,13 +30,17 @@ class Member_model extends CI_Model {
     if($check_login_query->num_rows() > 0) {
       $login_result = $check_login_query->row_array();
     } else {
-      $login_result = array();
+      $login_result = null;
     }
     return $login_result;
   }
 
   public function getCoopDataByID($student_id) {
-    $sql = "SELECT * FROM coop WHERE student_id=?";
+    $sql = "SELECT * FROM coop
+            INNER JOIN student ON coop.student_id = student.student_id
+            INNER JOIN advisor ON coop.advisor_id = advisor.advisor_id
+            INNER JOIN company ON coop.company_id = company.company_id
+            WHERE student.student_id=?";
     $query = $this->db->query($sql,$student_id);
 
     if($query->num_rows() > 0) {
